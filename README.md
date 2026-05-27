@@ -1,73 +1,99 @@
+<div align="center">
+
 # lil agents — Windows Edition
 
-> Tiny AI companions that live on your **Windows taskbar**.
+### Tiny AI companions that live on your Windows taskbar.
 
-**Bruce** and **Jazz** walk back and forth above your taskbar. Click one to open a themed AI terminal. They walk, they think, they vibe — and they wait for your prompt while you work.
+**Bruce** and **Jazz** stroll along your taskbar while you work. Click one to open a beautiful, themed AI chat — powered by the coding CLI you already use. They walk, they think, they vibe, and they let you know the moment your agent is done.
 
-This is a full, native-feeling Windows port of the original macOS app (AppKit + AVFoundation), rebuilt on **Electron** so it keeps the exact same animations, assets, themes, sounds, and behavior.
+[![Latest release](https://img.shields.io/github/v/release/DiaeEddineJamal/lil-agents-win?color=ff6fa3&label=download&style=for-the-badge)](https://github.com/DiaeEddineJamal/lil-agents-win/releases/latest)
+[![Downloads](https://img.shields.io/github/downloads/DiaeEddineJamal/lil-agents-win/total?color=ff6fa3&style=for-the-badge)](https://github.com/DiaeEddineJamal/lil-agents-win/releases)
+[![Platform](https://img.shields.io/badge/Windows-10%20%7C%2011-0a7bdc?style=for-the-badge&logo=windows)](#download)
+[![Arch](https://img.shields.io/badge/x64%20%7C%20ARM64-blueviolet?style=for-the-badge)](#download)
+[![License](https://img.shields.io/badge/license-MIT-2ea44f?style=for-the-badge)](./LICENSE)
 
-> **Unofficial community port.** This is a fork / Windows port of [**lil agents**](https://github.com/ryanstephen/lil-agents) — the original macOS app by **Ryan Stephen** ([lilagents.xyz](https://lilagents.xyz)). It is an independent community contribution, **not affiliated with or endorsed by** the original author. Distributed under the MIT License; see [Credits & Legal](#credits--legal).
+### [Download for Windows »](https://github.com/DiaeEddineJamal/lil-agents-win/releases/latest)
 
----
-
-## Highlights
-
-- **Same characters, same animation** — the original transparent HEVC walk-cycle videos, re-rendered frame-for-frame as transparent sprite sheets.
-- **Lives on the taskbar** — a transparent, always-on-top overlay; the characters stroll along the bottom of your screen with the original easing/physics.
-- **Click to chat** — a themed popover terminal with Markdown rendering, streaming responses, tool-use/result lines, and slash commands.
-- **Six AI providers** — Claude, Codex, Copilot, Gemini, OpenCode (local CLIs) and OpenClaw (self-hosted gateway over WebSocket).
-- **Four themes** — Peach, Midnight, Cloud, Moss.
-- **Thinking bubbles + completion sounds** — playful phrases while your agent works, a chime when it's done.
-- **System tray menu** — toggle characters, sounds, provider, size, theme, and target display.
-- **First-run onboarding** — a friendly "hi!" and a welcome popover.
+</div>
 
 ---
 
-## Requirements
+## Why you'll love it
 
-- Windows 10/11 (x64 or ARM64).
-- At least one supported CLI installed (for local providers):
+Your AI coding assistant shouldn't be buried in a terminal tab. **lil agents — Windows Edition** turns it into a couple of charming characters that live right on your desktop:
 
-| Provider | Install |
-|----------|---------|
-| Claude Code | `irm https://claude.ai/install.ps1 \| iex` &nbsp;or&nbsp; `npm i -g @anthropic-ai/claude-code` |
+- **Always there, never in the way** — Bruce and Jazz walk along the top of your taskbar with smooth, hand-tuned animation, and clicks pass straight through to your taskbar everywhere except on the characters themselves.
+- **One click to chat** — tap a character to open a gorgeous popover terminal with live streaming, Markdown, tool-call summaries, and handy slash commands (`/clear`, `/copy`, `/help`).
+- **Use the AI you already pay for** — Claude Code, OpenAI Codex, GitHub Copilot, Google Gemini, OpenCode, or a self-hosted OpenClaw gateway. Switch any time from the title bar or tray.
+- **Made to feel like yours** — four hand-crafted themes (Peach, Midnight, Cloud, Moss), three character sizes, optional completion sounds, and multi-monitor support.
+- **Quietly delightful** — playful "thinking" bubbles while your agent works, and a friendly chime when it's finished.
+- **Private by design** — everything runs locally. No account, no telemetry, no chat data leaves your machine.
+
+> This **Windows Edition** is a from-scratch, native-feeling rebuild on Electron that faithfully preserves the original characters, animations, sounds, and themes — re-engineered for the Windows taskbar. It is a community port of the macOS original by Ryan Stephen (see [Credits & Legal](#credits--legal)).
+
+---
+
+## Download
+
+Grab the latest installer — no account, no setup wizard headaches, installs in seconds (per-user, no admin required).
+
+| | Installer | Best for |
+|---|-----------|----------|
+| **Recommended** | [**lil-agents-1.2.2-setup.exe**](https://github.com/DiaeEddineJamal/lil-agents-win/releases/download/v1.2.2/lil-agents-1.2.2-setup.exe) | **Any Windows PC** — auto-installs the right build (x64 + ARM64) |
+| | [lil-agents-1.2.2-x64-setup.exe](https://github.com/DiaeEddineJamal/lil-agents-win/releases/download/v1.2.2/lil-agents-1.2.2-x64-setup.exe) | Intel / AMD machines |
+| | [lil-agents-1.2.2-arm64-setup.exe](https://github.com/DiaeEddineJamal/lil-agents-win/releases/download/v1.2.2/lil-agents-1.2.2-arm64-setup.exe) | Windows on ARM (Snapdragon, etc.) |
+
+See all versions on the [**Releases**](https://github.com/DiaeEddineJamal/lil-agents-win/releases) page.
+
+> **First launch:** Windows SmartScreen may show *"Windows protected your PC"* because the app isn't yet signed with a commercial certificate. Click **More info → Run anyway** — it's safe, open-source, and you can read every line here. (A CA-signed build is on the roadmap.)
+
+### After installing
+
+Bruce and Jazz appear on your taskbar. Click one to start chatting. Right-click the **tray icon** for characters, provider, theme, size, sounds, and display options.
+
+To chat, you'll need at least one supported AI CLI on your machine:
+
+| Provider | Install (PowerShell) |
+|----------|----------------------|
+| Claude Code | `irm https://claude.ai/install.ps1 \| iex` &nbsp;·&nbsp; or `npm i -g @anthropic-ai/claude-code` |
 | OpenAI Codex | `npm i -g @openai/codex` |
 | GitHub Copilot | `npm i -g @github/copilot-cli` |
 | Google Gemini | `npm i -g @google/gemini-cli` |
 | OpenCode | `irm https://opencode.ai/install.ps1 \| iex` |
-| OpenClaw | self-hosted gateway — configure via the tray's *Provider → Advanced Settings…* |
+| OpenClaw | Self-hosted gateway — configure in *tray → Provider → Advanced Settings…* |
 
-The app discovers CLIs on your `PATH` plus common npm/scoop/winget locations, and gracefully shows install instructions inside the popover if a provider isn't found.
-
----
-
-## Install
-
-Grab an installer from `dist/` and run it:
-
-| Installer | For |
-|-----------|-----|
-| `lil-agents-<version>-setup.exe` | **Universal** — installs the correct build for any PC |
-| `lil-agents-<version>-x64-setup.exe` | Intel / AMD (x64) |
-| `lil-agents-<version>-arm64-setup.exe` | ARM64 Windows |
-
-The installer is a friendly assisted flow (welcome → choose folder → finish), installs per-user (no admin prompt), and creates Desktop + Start-menu shortcuts. The app then runs in the background with a tray icon — right-click it for all options.
-
-> **SmartScreen note:** unless built with a CA-issued certificate, Windows may show *"Windows protected your PC."* Click **More info → Run anyway**. See [Code signing](#code-signing) to remove this.
+The app finds CLIs on your `PATH` (plus common npm/scoop/winget locations) and shows friendly install hints in-app if one is missing.
 
 ---
 
-## Run from source
+## Features at a glance
+
+| | |
+|---|---|
+| **Characters** | Bruce & Jazz, original art and walk-cycle animation, 3 sizes |
+| **Chat** | Themed terminal popover · streaming · Markdown · tool-use/result lines · slash commands |
+| **Providers** | Claude · Codex · Copilot · Gemini · OpenCode · OpenClaw |
+| **Themes** | Peach · Midnight · Cloud · Moss |
+| **Extras** | Thinking bubbles · completion sounds · tray menu · multi-monitor · first-run onboarding |
+| **Privacy** | 100% local · no account · no telemetry |
+| **Requirements** | Windows 10/11 (x64 or ARM64) |
+
+---
+
+## For developers
+
+Built with **Electron** + vanilla JS — no heavy framework, no build step for the app itself.
+
+### Run from source
 
 ```powershell
-cd windows-version
+git clone https://github.com/DiaeEddineJamal/lil-agents-win.git
+cd lil-agents-win
 npm install
 npm start
 ```
 
----
-
-## Build the installers
+### Build the installers
 
 ```powershell
 npm run dist          # both architectures (x64 + arm64)
@@ -75,75 +101,55 @@ npm run dist:x64      # x64 only
 npm run dist:arm64    # arm64 only
 ```
 
-Output lands in `dist/`. Building ARM64 from an x64 machine works out of the box (the app is pure JavaScript; electron-builder downloads the per-arch Electron runtime).
+Output lands in `dist/`. Building ARM64 from an x64 machine works out of the box — the app is pure JavaScript, so electron-builder simply downloads the per-arch Electron runtime.
 
----
+### Code signing
 
-## Code signing
-
-Signing is **wired up** through electron-builder's standard environment variables, so a signed build is a matter of supplying a certificate.
-
-### Test build (self-signed)
+Signing is wired through electron-builder's standard environment variables, so a signed build just needs a certificate.
 
 ```powershell
-npm run cert                       # creates build\lil-agents-cert.pfx (password: lilagents)
-$env:CSC_LINK = "build/lil-agents-cert.pfx"
-$env:CSC_KEY_PASSWORD = "lilagents"
+# Test build (self-signed — verifies signing works locally)
+npm run cert
+$env:CSC_LINK = "build/lil-agents-cert.pfx"; $env:CSC_KEY_PASSWORD = "lilagents"
+npm run dist
+
+# Production build (trusted) — use an OV/EV cert from a CA (DigiCert, Sectigo, …)
+$env:CSC_LINK = "C:\path\to\your-cert.pfx"; $env:CSC_KEY_PASSWORD = "<password>"
 npm run dist
 ```
 
-This produces a **signed** installer (publisher shown, integrity verified). A self-signed certificate is *not* trusted by SmartScreen on other machines — it's for local verification that signing works.
+EV certificates clear SmartScreen immediately; OV certificates build reputation over time. No code changes required.
 
-### Production build (trusted)
+### How it works
 
-Obtain an **OV or EV code-signing certificate** from a CA (DigiCert, Sectigo, etc.). EV certificates clear SmartScreen immediately; OV certificates build reputation over time. Then:
-
-```powershell
-$env:CSC_LINK = "C:\path\to\your-cert.pfx"
-$env:CSC_KEY_PASSWORD = "<your-password>"
-npm run dist
-```
-
-electron-builder signs every executable and the installer, timestamps them, and the SmartScreen warning disappears. No code changes required.
-
----
-
-## How it works
-
-The macOS app is AppKit + `AVPlayerLayer` + `CVDisplayLink`. The Windows port keeps the same architecture, mapped onto Electron:
+The macOS original is AppKit + `AVPlayerLayer` + `CVDisplayLink`. This port keeps the same architecture, mapped onto Electron:
 
 | macOS (AppKit) | Windows (Electron) |
 |----------------|--------------------|
-| Borderless transparent `NSWindow` above the Dock | One transparent, always-on-top overlay window spanning the taskbar strip |
+| Transparent `NSWindow` above the Dock | One transparent, always-on-top overlay spanning the taskbar strip |
 | `AVPlayerLayer` transparent HEVC video | `<canvas>` drawing transparent **sprite-sheet** frames |
 | `CVDisplayLink` tick loop | `requestAnimationFrame` loop |
 | Dock geometry from `com.apple.dock` | Taskbar geometry from Electron's `screen` work-area vs bounds |
-| Per-pixel alpha hit-test via `CGWindowListCreateImage` | `setIgnoreMouseEvents(forward)` + canvas alpha sampling |
+| Per-pixel alpha hit-test (`CGWindowListCreateImage`) | `setIgnoreMouseEvents(forward)` + canvas alpha sampling |
 | `NSStatusItem` menu bar | `Tray` context menu |
 | `Process` + pipes for CLIs | `child_process.spawn` + line-buffered parsing |
 | `URLSessionWebSocketTask` + CryptoKit (OpenClaw) | `ws` + Node `crypto` (Ed25519) |
 | `UserDefaults` | JSON file in `userData` |
 
-### Transparent animation pipeline
-
-The original `.mov` files use HEVC with an alpha channel. Chromium can't play HEVC-alpha, and VP9/WebM alpha proved unreliable, so each video is rendered to a **transparent PNG sprite sheet** with ffmpeg:
+**Transparent animation pipeline.** The original `.mov` files are HEVC with an alpha channel, which Chromium can't play (and WebM/VP9 alpha proved unreliable). Each video is therefore rendered to a transparent PNG sprite sheet with ffmpeg:
 
 ```bash
 ffmpeg -i walk-bruce-01.mov -vf "scale=225:400,tile=16x16" -frames:v 1 walk-bruce-sheet.png
 ```
 
-That's 241 frames @ 24 fps laid out in a 16×16 grid (225×400 per frame). The renderer steps through frames on a canvas to reproduce the walk cycle exactly, with the same acceleration/deceleration easing ported from `WalkerCharacter.movementPosition`.
+That's 241 frames @ 24 fps in a 16×16 grid (225×400 each). The renderer steps through them on a canvas, reproducing the walk cycle with the same acceleration/deceleration easing ported from `WalkerCharacter.movementPosition`.
 
-### Click-through hit-testing
+**Click-through hit-testing.** The overlay covers the whole bottom strip but lets clicks reach the taskbar everywhere except on a character or open popover — the renderer samples the character's rendered pixel alpha on each mouse move and toggles window interactivity, matching the macOS pixel hit-test.
 
-The overlay covers the whole bottom strip but must let clicks pass through to the taskbar everywhere except on a character or open popover. The window runs in forwarded click-through mode; on every mouse move the renderer samples the character's rendered pixel alpha (and checks popover bounds) and toggles interactivity accordingly — the same "only the character is clickable" behavior as the macOS pixel hit-test.
-
----
-
-## Project structure
+### Project structure
 
 ```
-windows-version/
+lil-agents-win/
 ├─ assets/
 │  ├─ walk-bruce-sheet.png      # transparent sprite sheets (16×16, 241 frames)
 │  ├─ walk-jazz-sheet.png
@@ -158,15 +164,16 @@ windows-version/
 │  │  ├─ settings.js            # UserDefaults-equivalent JSON store
 │  │  └─ sessions/              # one module per AI provider
 │  └─ renderer/                 # UI (runs in the overlay window)
-│     ├─ overlay.html/.js       # controller + tick loop + hit-testing
+│     ├─ overlay.html / .js     # controller + tick loop + hit-testing
 │     ├─ walker.js              # character animation, physics, popover, bubbles
 │     ├─ terminal.js            # themed transcript + input + slash commands
 │     ├─ markdown.js            # Markdown → DOM renderer
 │     ├─ theme.js               # the 4 theme presets
-│     ├─ settings.html/.js      # OpenClaw connection dialog
+│     ├─ settings.html / .js    # OpenClaw connection dialog
 │     └─ styles.css
 ├─ build/                       # installer art + signing helpers
 │  ├─ gen-art.py                # generates the Peach-themed installer art
+│  ├─ installer.nsh             # NSIS customizations (per-user install)
 │  ├─ installerSidebar.bmp      # welcome/finish artwork
 │  ├─ installerHeader.bmp       # inner-page header
 │  └─ make-selfsigned-cert.ps1  # test certificate helper
@@ -174,38 +181,36 @@ windows-version/
 └─ dist/                        # built installers (generated)
 ```
 
----
-
-## Installer design
-
-The installer follows the app's **Peach** visual identity: a soft peach gradient, the `lil agents` wordmark in the brand pink (`#D95973`), Bruce and Jazz standing on a taskbar-style ground band with a "hi!" speech bubble, and a matching header on every page. Artwork is generated by `build/gen-art.py` (run `npm run art` to regenerate).
-
----
-
-## Privacy
-
-lil agents runs entirely on your machine and sends no personal data anywhere. Conversations are handled by the local CLI (or your own OpenClaw gateway) that you choose. No accounts, no analytics.
+The installer follows the app's **Peach** identity: a soft peach gradient, the `lil agents` wordmark in brand pink (`#D95973`), Bruce and Jazz on a taskbar-style ground band with a "hi!" bubble, and a matching header on every page. Run `npm run art` to regenerate it.
 
 ---
 
 ## Credits & Legal
 
+This Windows Edition stands on the shoulders of a wonderful original. Please support and star the upstream project.
+
 **Original project**
-- **lil agents** (macOS) by **Ryan Stephen** — https://github.com/ryanstephen/lil-agents · https://lilagents.xyz
+- **lil agents** (macOS) by **Ryan Stephen** — <https://github.com/ryanstephen/lil-agents> · <https://lilagents.xyz>
 - Copyright © 2026 Ryan Stephen. Licensed under the MIT License.
-- The character designs, names (**Bruce** and **Jazz**), walk-cycle animations, sound effects, app icon, the **"lil agents"** name, and the overall concept and visual identity all originate from that project and remain the work of its original author.
+- The characters, their names (**Bruce** and **Jazz**), the walk-cycle animations, sound effects, app icon, the **"lil agents"** name, and the overall concept and visual identity all originate from that project and remain the work of its original author.
 
 **This repository (Windows Edition)**
-- A Windows port by **DiaeEddineJamal**, created as a derivative work under the terms of the MIT License.
-- New in this port: the Electron application shell, Windows taskbar integration, sprite-sheet animation pipeline, provider session layer, and the Windows installer. The original art and audio assets are reused unmodified (the videos are re-encoded frame-for-frame to sprite sheets purely for Windows playback).
-- This is an **unofficial, community-maintained** project. It is **not affiliated with, sponsored by, or endorsed by** Ryan Stephen or the original lil agents project. Any "lil agents" naming is used solely to identify the upstream project this port is derived from (nominative use).
+- A Windows port by **[DiaeEddineJamal](https://github.com/DiaeEddineJamal)**, created as a derivative work under the MIT License.
+- New here: the Electron application shell, Windows taskbar integration, the sprite-sheet animation pipeline, the provider session layer, and the Windows installer. Original art and audio are reused unmodified (videos are re-encoded frame-for-frame to sprite sheets solely for Windows playback).
+- This is an **unofficial, community-maintained** project. It is **not affiliated with, sponsored by, or endorsed by** Ryan Stephen or the original lil agents project. The "lil agents" name is used only to identify the upstream project this port derives from (nominative use).
 
 **License**
 - Both the original work and this port are distributed under the **MIT License** — see [LICENSE](./LICENSE). The original copyright notice is retained as the license requires.
 - Provided **"as is", without warranty of any kind**. You install and run it at your own risk.
 
 **Third-party AI CLIs**
-- Claude Code, OpenAI Codex, GitHub Copilot, Google Gemini, OpenCode, and OpenClaw are independent products of their respective owners. This app only launches the CLI you choose; it does not bundle, redistribute, or modify them, and your use of each is governed by that provider's own terms and privacy policy.
+- Claude Code, OpenAI Codex, GitHub Copilot, Google Gemini, OpenCode, and OpenClaw are independent products of their respective owners. This app only launches the CLI you choose — it does not bundle, redistribute, or modify them, and your use of each is governed by that provider's own terms and privacy policy.
 
 **Reporting / takedown**
-- If you are the original author and have any concern about this port or its distribution, please open an issue on this repository and it will be addressed promptly.
+- If you are the original author and have any concern about this port or its distribution, please [open an issue](https://github.com/DiaeEddineJamal/lil-agents-win/issues) and it will be addressed promptly.
+
+<div align="center">
+
+Made with care for the Windows community · Original by [Ryan Stephen](https://github.com/ryanstephen/lil-agents)
+
+</div>
