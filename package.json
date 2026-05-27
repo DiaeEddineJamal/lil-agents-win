@@ -1,0 +1,69 @@
+{
+  "name": "lil-agents",
+  "version": "1.2.2",
+  "description": "Tiny AI companions that live on your Windows taskbar.",
+  "main": "src/main/main.js",
+  "scripts": {
+    "start": "electron .",
+    "art": "python build/gen-art.py",
+    "cert": "powershell -ExecutionPolicy Bypass -File build/make-selfsigned-cert.ps1",
+    "dist": "electron-builder --win --x64 --arm64",
+    "dist:x64": "electron-builder --win --x64",
+    "dist:arm64": "electron-builder --win --arm64"
+  },
+  "author": "lil agents",
+  "license": "MIT",
+  "dependencies": {
+    "ws": "^8.18.0"
+  },
+  "devDependencies": {
+    "electron": "^33.0.0",
+    "electron-builder": "^25.0.0",
+    "png-to-ico": "^3.0.1"
+  },
+  "build": {
+    "appId": "xyz.lilagents.app",
+    "productName": "lil agents",
+    "copyright": "MIT © lil agents",
+    "directories": {
+      "output": "dist",
+      "buildResources": "build"
+    },
+    "files": [
+      "src/**/*",
+      "assets/**/*",
+      "!**/*.py",
+      "!**/_*"
+    ],
+    "win": {
+      "icon": "assets/icon.ico",
+      "target": [
+        {
+          "target": "nsis",
+          "arch": ["x64", "arm64"]
+        }
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowElevation": false,
+      "allowToChangeInstallationDirectory": true,
+      "warningsAsErrors": false,
+      "include": "build/installer.nsh",
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "lil agents",
+      "runAfterFinish": true,
+      "deleteAppDataOnUninstall": false,
+      "installerIcon": "assets/icon.ico",
+      "uninstallerIcon": "assets/icon.ico",
+      "installerHeaderIcon": "assets/icon.ico",
+      "installerHeader": "build/installerHeader.bmp",
+      "installerSidebar": "build/installerSidebar.bmp",
+      "uninstallerSidebar": "build/uninstallerSidebar.bmp",
+      "uninstallDisplayName": "lil agents ${version}",
+      "artifactName": "lil-agents-${version}-${arch}-setup.${ext}"
+    }
+  }
+}

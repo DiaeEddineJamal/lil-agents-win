@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; script-src 'self';" />
+  <style>
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      margin: 0; padding: 18px 20px; color: #1b1b1b; background: #f4f4f5;
+      font-size: 13px;
+    }
+    h2 { margin: 0 0 4px; font-size: 15px; }
+    p.sub { margin: 0 0 16px; color: #666; font-size: 12px; line-height: 1.4; }
+    label { display: block; margin: 10px 0 3px; font-weight: 600; }
+    input {
+      width: 100%; padding: 6px 8px; border: 1px solid #ccc; border-radius: 5px;
+      font-size: 13px; background: #fff; color: #111;
+    }
+    .hint { margin-top: 14px; color: #777; font-size: 11px; line-height: 1.4; }
+    .row { display: flex; justify-content: flex-end; gap: 8px; margin-top: 18px; }
+    button { padding: 6px 16px; border-radius: 5px; border: 1px solid #bbb; background: #fff; cursor: pointer; font-size: 13px; }
+    button.primary { background: #2f7; border-color: #2c6; background: #3b82f6; color: #fff; border-color: #2563eb; }
+  </style>
+</head>
+<body>
+  <h2>OpenClaw Connection</h2>
+  <p class="sub">Connect lil agents to your OpenClaw gateway. Find these details in your OpenClaw dashboard or from your server administrator.</p>
+
+  <label>Server Address</label>
+  <input id="url" placeholder="ws://localhost:3001" />
+  <label>Auth Token</label>
+  <input id="token" type="password" placeholder="Paste your token here" />
+  <label>Session Prefix</label>
+  <input id="prefix" placeholder="lil-agents" />
+  <label>Agent ID</label>
+  <input id="agent" placeholder="Optional" />
+
+  <p class="hint">Tip: you can also set OPENCLAW_GATEWAY_URL and OPENCLAW_GATEWAY_TOKEN environment variables.</p>
+
+  <div class="row">
+    <button id="cancel">Cancel</button>
+    <button id="save" class="primary">Save</button>
+  </div>
+
+  <script src="settings.js"></script>
+</body>
+</html>
