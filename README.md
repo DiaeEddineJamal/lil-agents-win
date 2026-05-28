@@ -1,5 +1,7 @@
 <div align="center">
 
+<img src="assets/readne-banner-image.png" alt="lil agents — Windows Edition" width="100%">
+
 # lil agents — Windows Edition
 
 ### Tiny AI companions that live on your Windows taskbar.
