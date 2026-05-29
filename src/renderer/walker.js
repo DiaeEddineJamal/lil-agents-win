@@ -158,32 +158,57 @@
     }
 
     startWalk() {
-      this.isPaused = false;
-      this.isWalking = true;
-      this._idleDrawn = false;
-      this.walkStartTime = this.controller.now();
-
-      if (this.positionProgress > 0.85) this.goingRight = false;
-      else if (this.positionProgress < 0.15) this.goingRight = true;
-      else this.goingRight = Math.random() < 0.5;
-
       const walkStartPos = this.positionProgress;
       const referenceWidth = 500.0;
       const range = this.walkAmountRange;
       const walkPixels = (range[0] + Math.random() * (range[1] - range[0])) * referenceWidth;
       const walkAmount = this.currentTravelDistance > 0 ? walkPixels / this.currentTravelDistance : 0.3;
-      let walkEndPos = this.goingRight ? Math.min(walkStartPos + walkAmount, 1) : Math.max(walkStartPos - walkAmount, 0);
 
+      // Destination for a given direction: clamped to [0,1], kept a minimum
+      // separation away from siblings, and never crossing the start (which
+      // would silently reverse direction mid-walk).
       const minSep = 0.12;
-      for (const sib of this.controller.walkers) {
-        if (sib === this) continue;
-        const sibPos = sib.positionProgress;
-        if (Math.abs(walkEndPos - sibPos) < minSep) {
-          if (this.goingRight) walkEndPos = Math.max(walkStartPos, sibPos - minSep);
-          else walkEndPos = Math.min(walkStartPos, sibPos + minSep);
+      const endForDirection = (goingRight) => {
+        let end = goingRight ? Math.min(walkStartPos + walkAmount, 1) : Math.max(walkStartPos - walkAmount, 0);
+        for (const sib of this.controller.walkers) {
+          if (sib === this) continue;
+          const sibPos = sib.positionProgress;
+          if (Math.abs(end - sibPos) < minSep) {
+            if (goingRight) end = Math.min(end, sibPos - minSep);
+            else end = Math.max(end, sibPos + minSep);
+          }
+        }
+        return goingRight ? Math.max(end, walkStartPos) : Math.min(end, walkStartPos);
+      };
+
+      // Pick a preferred direction, but fall back to the other when the chosen
+      // one leaves no room (a sibling or edge is blocking). If neither direction
+      // has room, stay paused instead of animating the walk cycle in place.
+      let preferRight;
+      if (walkStartPos > 0.85) preferRight = false;
+      else if (walkStartPos < 0.15) preferRight = true;
+      else preferRight = Math.random() < 0.5;
+
+      const minTravel = 0.04;
+      let goingRight = preferRight;
+      let walkEndPos = endForDirection(preferRight);
+      if (Math.abs(walkEndPos - walkStartPos) < minTravel) {
+        const altEnd = endForDirection(!preferRight);
+        if (Math.abs(altEnd - walkStartPos) > Math.abs(walkEndPos - walkStartPos)) {
+          goingRight = !preferRight;
+          walkEndPos = altEnd;
         }
       }
+      if (Math.abs(walkEndPos - walkStartPos) < minTravel) {
+        this.enterPause();
+        return;
+      }
 
+      this.isPaused = false;
+      this.isWalking = true;
+      this._idleDrawn = false;
+      this.walkStartTime = this.controller.now();
+      this.goingRight = goingRight;
       this.walkStartPixel = walkStartPos * this.currentTravelDistance;
       this.walkEndPixel = walkEndPos * this.currentTravelDistance;
       this.updateFlip();
@@ -197,7 +222,10 @@
     }
 
     updateFlip() {
-      this.canvas.style.transform = this.goingRight ? 'none' : 'scaleX(-1)';
+      // Always keep an explicit scaleX transform (never `none`): toggling
+      // between `none` and a transform destroys and recreates the compositing
+      // layer, which shows up as a one-frame flicker right as the walk starts.
+      this.canvas.style.transform = this.goingRight ? 'scaleX(1)' : 'scaleX(-1)';
     }
 
     get flipCompensation() { return this.goingRight ? 0 : this.flipXOffset; }

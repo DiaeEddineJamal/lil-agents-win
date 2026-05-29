@@ -22,6 +22,9 @@ html, body {
 .char {
   position: absolute;
   pointer-events: auto;
+  transform: scaleX(1);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
   will-change: left, top, transform;
   image-rendering: auto;
 }

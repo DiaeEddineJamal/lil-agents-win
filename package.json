@@ -1,6 +1,6 @@
 {
   "name": "lil-agents",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "Tiny AI companions that live on your Windows taskbar.",
   "main": "src/main/main.js",
   "scripts": {
